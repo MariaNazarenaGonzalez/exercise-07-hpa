@@ -1,1 +1,13 @@
 # TODO: Service exposing port 8080
+apiVersion: v1
+kind: Service
+metadata:
+  name: exercise-07
+spec:
+  selector:
+    app: exercise-07       # conecta con los pods del Deployment
+  ports:
+    - protocol: TCP
+      port: 80             # puerto externo
+      targetPort: 8080     # puerto del contenedor
+  type: LoadBalancer       # expone afuera del cluster
